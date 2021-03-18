@@ -1,0 +1,8 @@
+<div class="container">
+    <h4 class="text-success mt-5 mb-3">New Book</h4>
+    <form action="/books" method="POST" enctype="multipart/form-data">
+        <%- include('_form_fields')%>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/books" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

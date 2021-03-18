@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="name" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="name" value="<%= book.title %>">
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="name" class="form-label">Author</label>
+            <select class="form-select" name="author" aria-label="Author">
+                <!--                <option selected>Select Author</option>-->
+                <% authors.forEach(author => { %>
+                    <% if (author.id === book.author) { %>
+                        <option selected value="<%= author.id %>"><%= author.name %></option>
+                    <% } else { %>
+                        <option value="<%= author.id %>"><%= author.name %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="publishedDate" class="form-label">Published Date</label>
+            <input type="date" name="publishedDate" class="form-control" id="publishedDate"
+                   value="<%= book.publishedDate == null ? '' : book.publishedDate.toISOString().split('T')[0] %>">
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="pageCount" class="form-label">Page Count</label>
+            <input type="number" name="pageCount" class="form-control" id="pageCount" min="1"
+                   value="<%= book.pageCount %>">
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="coverImage" class="form-label">Cover Image</label>
+            <input name="cover" type="file" class="form-control" id="coverImage">
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" class="form-control" id="description" rows="3"><%= book.description %></textarea>
+        </div>
+    </div>
+</div>

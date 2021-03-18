@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 //Routes
 const indexRoutes = require("./routes/index")
 const authorsRoutes = require("./routes/authors")
+const booksRoutes = require("./routes/books")
 
 // if (process.env.NODE_ENV !== "production"){
 //   require("dotenv").load();
@@ -36,6 +37,7 @@ db.once('open', () => console.log("Connected to MongoDB"))
 
 app.use("/",indexRoutes)
 app.use("/authors",authorsRoutes)
+app.use("/books",booksRoutes)
 
 const PORT = process.env.PORT || 3200;
 app.listen(PORT, ()=>{
