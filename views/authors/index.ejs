@@ -5,12 +5,22 @@
                name="name"
                type="search"
                placeholder="Search"
-               value="<%= searchOptions.name%>"
+               value="<%= searchOptions.name %>"
                aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <hr>
-    <% authors.forEach(author => {%>
-    <div class="text-info"><%=author.name%></div>
-    <%})%>
+    <% authors.forEach(author => { %>
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <div class="text-info"><%= author.name %></div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+                <a href="/authors/<%= author._id %>" class="btn btn-primary">View</a>
+                <a href="/authors/<%= author._id %>/edit" class="btn btn-info mx-3">Edit</a>
+                <%- include('../partials/deleteForm',{url: `/authors/${author._id}`}) %>
+            </div>
+        </div>
+    <% }) %>
+
 </div>

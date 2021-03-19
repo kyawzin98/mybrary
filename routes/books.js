@@ -18,7 +18,7 @@ router.get("/",async (req, res) => {
     query = query.gte('publishedDate',searchOptions.publishedAfter)
   }
   try {
-    const books = await query.exec();
+    const books = await query.populate({path: "author",model: "Author", select:"name"}).exec();
     res.render("books/index",{
       books,
       searchOptions
