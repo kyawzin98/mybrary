@@ -2,15 +2,17 @@
     <h3 class="mt-3">Recently Added</h3>
     <div class="row">
         <% books.forEach(book => { %>
-            <div class="col-12 col-md-3">
-                <div class="card" style="width: 18rem;">
+        <div class="col-12 col-md-3">
+            <div class="card" style="width: 18rem;">
+                <a href="/books/<%= book._id %>">
                     <img height="270px" src="<%= book.coverImagePath %>" class="card-img-top" alt="<%= book.name %>">
-                    <div class="card-body">
-                        <h5><%= book.title %></h5>
-                        <p class="card-text"><%= book.publishedDate.toLocaleDateString() %></p>
-                    </div>
+                </a>
+                <div class="card-body">
+                    <h5><%= book.title %></h5>
+                    <p class="card-text"><%= book.publishedDate.toLocaleDateString() %></p>
                 </div>
             </div>
+        </div>
         <% }) %>
     </div>
 </div>

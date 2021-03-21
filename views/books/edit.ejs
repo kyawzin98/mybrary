@@ -1,0 +1,8 @@
+<div class="container">
+    <h4 class="text-success mt-5 mb-3">Edit Book</h4>
+    <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+        <%- include('_form_fields')%>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/books" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

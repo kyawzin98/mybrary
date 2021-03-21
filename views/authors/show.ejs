@@ -12,7 +12,9 @@
                     <% books.forEach(book => { %>
                         <div class="col-3">
                             <div class="card">
-                                <img height="300px" src="<%= book.coverImagePath %>" class="card-img-top" alt="<%= book.name %>">
+                                <a href="/books/<%=book._id%>">
+                                    <img height="300px" src="<%= book.coverImagePath %>" class="card-img-top" alt="<%= book.name %>">
+                                </a>
                                 <div class="card-body">
                                     <h5><%= book.title %></h5>
                                     <p class="card-text"><%= book.publishedDate.toLocaleDateString() %></p>
